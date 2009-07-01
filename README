@@ -1,0 +1,22 @@
+The auto-qa is a set of tools for turning a normal linux installation into an
+automatic test box for the linux kernel.
+
+Parts:
+
+ - updating software
+ - kernel configuration
+ - kernel compilation
+ - kernel installation
+ - boot-loader configuration
+ - userspace test-suites
+    * ltp
+    * scrashme
+    * ucrashk
+    * random module insertion / removal
+    * intentionally corrupted disk images
+    * intentionally corrupted network packets
+ - logging
+    * serial console
+    * netconsole
+ - reporting
+    * kerneloops.org
