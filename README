@@ -20,3 +20,16 @@ Parts:
     * netconsole
  - reporting
     * kerneloops.org
+
+A typical setup will consist of two machines, where one machine is logging the
+serial-console output of the other (which is running the test kernel and the
+userspace test suites). Since a regular PC normally only has one or two serial
+ports, this obviously limits the number of other computers it can log data
+from. Other configurations are possible, e.g. with netconsole, where one
+machine can log from an unlimited number of other computers (although
+netconsole is slightly less reliable than serial console).
+
+The logging machine will usually also run distcc to help in the process of
+compiling new kernels.
+
+The auto-qa software will mainly be installed in a new directory "/autoqa".
