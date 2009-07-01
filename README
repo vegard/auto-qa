@@ -13,7 +13,7 @@ Parts:
     * scrashme
     * ucrashk
     * random module insertion / removal
-    * intentionally corrupted disk images
+    * intentionally corrupted disk images (fsfuzzer)
     * intentionally corrupted network packets
  - logging
     * serial console
