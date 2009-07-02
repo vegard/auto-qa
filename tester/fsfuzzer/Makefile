@@ -1,4 +1,6 @@
 all: fsfuzzer-0.7
+	cd $< && ./configure
+	cd $< && make
 
 clean:
 	rm -rf fsfuzzer-0.7*
