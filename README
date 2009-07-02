@@ -33,3 +33,9 @@ The logging machine will usually also run distcc to help in the process of
 compiling new kernels.
 
 The auto-qa software will mainly be installed in a new directory "/autoqa".
+
+
+Dependencies
+============
+
+  - fsfuzzer: libattr (ubuntu: libattr1-dev)
