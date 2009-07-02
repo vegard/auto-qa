@@ -1,4 +1,5 @@
 all: ltp-full-20090630
+	cd $< && make
 
 clean:
 	rm -rf ltp-full-20090630*
