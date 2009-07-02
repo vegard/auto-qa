@@ -1,8 +1,13 @@
-all: scrashme
+dir := scrashme
+
+all: $(dir)
+	make -C $(dir)
 
 clean:
-	rm -rf scrashme
+	if [ -d $(dir) ]; then make -C $(dir) clean; fi
 
-scrashme:
-	git clone http://www.codemonkey.org.uk/projects/scrashme/scrashme.git
-	cd $@ && make
+distclean: clean
+	rm -rf $(dir)
+
+$(dir):
+	git clone http://www.codemonkey.org.uk/projects/scrashme/scrashme.git $(dir)

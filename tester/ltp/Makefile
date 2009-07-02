@@ -1,11 +1,17 @@
-all: ltp-full-20090630
-	cd $< && make
+archive := ltp-full-20090630.tgz
+dir := ltp-full-20090630
+
+all: $(dir)
+	make -C $(dir)
 
 clean:
-	rm -rf ltp-full-20090630*
+	if [ -d $(dir) ]; then make -C $(dir) clean; fi
 
-ltp-full-20090630: ltp-full-20090630.tgz
+distclean: clean
+	rm -rf $(archive)
+
+$(dir): $(archive)
 	tar xzmf $<
 
-ltp-full-20090630.tgz:
+$(archive):
 	wget http://downloads.sourceforge.net/ltp/ltp-full-20090630.tgz

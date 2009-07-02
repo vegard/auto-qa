@@ -1,12 +1,19 @@
-all: fsfuzzer-0.7
-	cd $< && ./configure
-	cd $< && make
+archive := fsfuzzer-0.7.tar.gz
+dir := fsfuzzer-0.7
+
+all: $(dir)
+	if [-! -f $(dir)/Makefile ]; then cd $(dir) && ./configure; fi
+	make -C $(dir)
 
 clean:
-	rm -rf fsfuzzer-0.7*
+	if [ -d $(dir) ]; then make -C $(dir) clean; fi
 
-fsfuzzer-0.7: fsfuzzer-0.7.tar.gz
+distclean: clean
+	rm -rf $(dir)
+	rm -rf $(archive)
+
+$(dir): $(archive)
 	tar xzmf $<
 
-fsfuzzer-0.7.tar.gz:
+$(archive):
 	wget http://people.redhat.com/sgrubb/files/fsfuzzer-0.7.tar.gz

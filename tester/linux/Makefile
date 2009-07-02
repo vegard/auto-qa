@@ -1,7 +1,13 @@
-all: linux-2.6
+dir := linux-2.6
+
+all: $(dir)
+	#make -C $(dir)
 
 clean:
-	rm -rf linux-2.6
+	if [ -d $(dir) ]; then make -C $(dir) clean; fi
 
-linux-2.6:
-	git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux-2.6.git
+distclean: clean
+	rm -rf $(dir)
+
+$(dir):
+	git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux-2.6.git $(dir)

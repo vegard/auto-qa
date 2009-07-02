@@ -1,7 +1,13 @@
-all: kerneloops
+dir := kerneloops
+
+all: $(dir)
+	make -C $(dir) all
 
 clean:
-	rm -rf kerneloops
+	if [ -d $(dir) ]; then make -C $(dir) clean; fi
 
-kerneloops:
-	git clone git://git.infradead.org/kerneloops.git
+distclean: clean
+	rm -rf $(dir)
+
+$(dir):
+	git clone git://git.infradead.org/kerneloops.git $(dir)
