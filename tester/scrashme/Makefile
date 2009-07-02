@@ -5,3 +5,4 @@ clean:
 
 scrashme:
 	git clone http://www.codemonkey.org.uk/projects/scrashme/scrashme.git
+	cd $@ && make
